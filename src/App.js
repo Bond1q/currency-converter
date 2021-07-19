@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { getCurrrenciesListApi } from "./api/api";
+import { ArrowToTop } from "./Components/ArrowToTop/ArrowToTop";
+import Converter from "./Components/Converter/Converter"
+import Currencies from "./Components/Currencies/Currencies"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+	getCurrrenciesListApi();
+
+	return (
+		<div className="App">
+			<Converter />
+			<Currencies />
+			<ArrowToTop />
+		</div>
+	);
 }
 
 export default App;

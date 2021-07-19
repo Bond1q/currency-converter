@@ -1,13 +1,204 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #cccccc;
 }
-
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+* {
+  box-sizing: border-box;
+  color: black;
+  font-size: 16px;
+}
+.App {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 25px;
+  border-radius: 15px;
+  padding: 30px;
+  -webkit-box-shadow: 0px 0px 60px 21px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 60px 21px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 40px 10px rgba(0, 0, 0, 0.2);
+  background: white;
+  margin-bottom: 40px;
+}
+.converter {
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto;
+  justify-content: center;
+}
+.converter input {
+  box-sizing: border-box;
+  padding: 10px 10px;
+  border: 0.5px solid #706d6d;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.converter input:focus {
+  border: 0.5px solid #000000;
+}
+.converter input::placeholder {
+  font-weight: 500;
+  text-transform: none;
+}
+.converter .chooseCurrency {
+  margin-right: 100px;
+}
+.converter .chooseCurrency input:focus ~ .currenciesList {
+  height: 202px;
+  opacity: 1;
+  overflow-y: scroll;
+  z-index: 100;
+  transition: all 0.4s;
+  border-bottom: 0.5px solid #000000;
+}
+.converter .chooseCurrency .currenciesList {
+  height: 0;
+  overflow-y: hidden;
+  position: absolute;
+  transition: all 0.4s;
+  width: 248px;
+  border: 0.5px solid #000000;
+  border-bottom: none;
+  border-top: none;
+  margin-left: 4px;
+  z-index: 100;
+  background: white;
+}
+.converter .chooseCurrency .currenciesList span {
+  font-weight: 600;
+}
+.converter .chooseCurrency .currencyListElem {
+  padding: 4px 8px;
+  padding-right: 4px;
+  border-bottom: 0.5px solid #a3a3a3;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #4e4e4e;
+}
+.converter .chooseCurrency .currencyListElem:hover {
+  background: #e9e7e7;
+}
+.currencies {
+  flex-wrap: wrap;
+  max-width: 850px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+.currencies .currency {
+  display: flex;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #a3a3a3;
+  align-items: center;
+}
+.currencies .currency:last-child {
+  margin-bottom: 0px;
+  border-bottom: none;
+  padding-bottom: none;
+}
+.currencies .currency .curAbbrevi {
+  font-size: 20px;
+  font-weight: 500;
+  flex: 0 1 60px;
+}
+.currencies .currency .curName {
+  font-size: 18px;
+  color: #3d3d3d;
+  margin-left: 15px;
+  justify-content: center;
+  flex: 0 1 39%;
+}
+.currencies .currency .curValue {
+  font-size: 20px;
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: calc(100% - 75%);
+  cursor: pointer;
+}
+.scroll-to-top svg {
+  width: 40px;
+}
+.scroll-to-top svg:hover {
+  fill: #383838;
+}
+@media screen and (max-width: 900px) {
+  .scroll-to-top {
+    right: calc(100% - 95%);
+  }
+}
+@media screen and (max-width: 480px) {
+  .App {
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .scroll-to-top {
+    right: calc(100% - 90%);
+  }
+  .converter input {
+    padding: 9px;
+    font-size: 14px;
+    text-transform: uppercase;
+    width: 150px;
+  }
+  .converter .chooseCurrency {
+    margin-right: 15px;
+  }
+  .converter .chooseCurrency input:focus ~ .currenciesList {
+    height: 150px;
+  }
+  .converter .chooseCurrency .currenciesList {
+    width: 142px;
+    z-index: 100;
+  }
+  .converter .chooseCurrency .currenciesList span {
+    font-size: 13px;
+  }
+  .converter .chooseCurrency .currencyListElem {
+    font-size: 13px;
+  }
+  .currencies {
+    margin-top: 20px;
+  }
+  .currencies .currency {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #a3a3a3;
+    align-items: center;
+  }
+  .currencies .currency:last-child {
+    margin-bottom: 0px;
+    border-bottom: none;
+    padding-bottom: none;
+  }
+  .currencies .currency .curAbbrevi {
+    font-size: 16px;
+    font-weight: 500;
+    flex: 0 1 40px;
+  }
+  .currencies .currency .curName {
+    font-size: 12px;
+    color: #3d3d3d;
+    margin-left: 7px;
+    justify-content: center;
+    flex: 0 1 40%;
+    margin-right: 5px;
+  }
+  .currencies .currency .curValue {
+    font-size: 14px;
+    font-weight: 500;
+    word-spacing: -1px;
+    flex: 0 1 55%;
+  }
 }
