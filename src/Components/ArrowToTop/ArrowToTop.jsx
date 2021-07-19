@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 
 export function ArrowToTop() {
 	const [isVisible, setIsVisible] = useState(false);
-
-	// Show button when page is scorlled upto given distance
 	const toggleVisibility = () => {
 		if (window.pageYOffset > 10) {
 			setIsVisible(true);
@@ -11,9 +9,6 @@ export function ArrowToTop() {
 			setIsVisible(false);
 		}
 	};
-
-	// Set the top cordinate to 0
-	// make scrolling smooth
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
