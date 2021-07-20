@@ -33,7 +33,7 @@ const Converter = React.memo(props => {
 	const showCurrencies = (obj) => {
 		list = []
 		if (obj) {
-			let index = 6
+			let index = 5
 			const importantCurrencies = ['usd', 'eur', 'uah', 'rub', 'btc', 'czk']
 			for (const key in obj) {
 				if (key.includes(wordMatch)) {

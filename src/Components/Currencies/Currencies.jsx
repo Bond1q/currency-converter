@@ -21,16 +21,16 @@ const Currencies = React.memo(props => {
 		}
 		return list
 	}
+	console.log('CUR:', props.convCur);
+	console.log("RATES:", props.rates);
 
 	const makeCurrencyList = (obj, curList = props.currenciesList) => {
-		let index = 6
-		let importantIndex = 0
+		let index = 5
 		const importantCurrencies = ['usd', 'eur', 'uah', 'rub', 'btc', 'czk']
 		for (const key in obj) {
 			let curValue = (obj[key] * props.convCurQuantity).toFixed(2)
 			if (importantCurrencies.includes(key)) {
-				importantIndex += 1
-				list.push(addElemToList(key, curList, curValue, importantCurrencies.indexOf(key)))
+				list.push(addElemToList(key, curList, curValue, +importantCurrencies.indexOf(key)))
 			} else {
 				index += 1
 				list.push(addElemToList(key, curList, curValue, index))
